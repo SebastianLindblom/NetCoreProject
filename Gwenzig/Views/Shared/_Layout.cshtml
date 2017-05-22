@@ -1,0 +1,171 @@
+﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gwenzig</title>
+    <link rel="shortcut icon" href="@Url.Content("~/favicon.ico")" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gwenzig Offer Social Media Advertizement Services With Local Advertisement And Marketing Team World Wide" />
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        @*<link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />*@
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    </environment>
+    @Html.Raw(JavaScriptSnippet.FullScript)
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar navbar-icon_bar"></span>
+                    <span class="icon-bar navbar-icon_bar"></span>
+                </button>
+                <a style="background:white; color:red;" asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Gwenzig</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a id="open_modal" class="modal-link" asp-area="" asp-controller="Messages" asp-action="Messages_Modal"><b>Contact</b></a></li>
+                </ul>
+                @*@await Html.PartialAsync("_LoginPartial")*@
+            </div>
+        </div>
+    </nav>
+
+
+    <div id="modal-container" class="modal fade container"
+         tabindex="-1" role="dialog">
+        <div id="loader"></div>
+
+        <div class="modal-close-btn modal-body col-sm-12">
+            <h1 style="margin:0;"><span class="glyphicon glyphicon-remove-circle pull-right" style="color:red; cursor:pointer"></span></h1>
+        </div><br />
+
+        <div class="modal-content">
+        </div>
+    </div>
+
+
+
+
+    <div class="container-fluid ">
+        @RenderBody()
+        <div class="row">
+        <hr />
+
+        <footer>
+            <div class="col-xs-12 col-sm-5">
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <h3>Gwenzig Group</h3>
+                    <p>Gwenzig Group established in 2007 at Shanghai China. We offer customer serves globally with ground breaking advertising and marketing which also includes one line serves from branding to after-market product design; as well as public relations agency based in Gothenburg, Sweden.</p>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6">
+
+                    <a id="open_modal" class="modal-link" href="@Url.Action("Messages_Modal", "Messages", new { @class = "navbar-link modal-link" })">
+
+                        <h3>Contact us here</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-2"><img style="display:block; margin:auto; object-fit:contain;" src="~/Content/Images/gwenzig-logo.png" class="center_logo" /></div>
+            <div class="col-xs-12 col-sm-5">
+
+
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <a target="_blank" href="https://www.facebook.com/GwenzigGroup"><h5>Facebook</h5></a>
+                    <a target="_blank" href="http://gwenzig.tumblr.com/"><h5>Tumbler</h5></a>
+                    <a target="_blank" href="https://www.pinterest.se/clouburry/"><h5>Pinterest</h5></a>
+                </div>
+
+            </div>
+            <div class="col-xs-12" style="text-align:center">
+
+                @using System.Reflection
+                @{ 
+                    var assembly = typeof(Startup).GetTypeInfo()?.Assembly?.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
+                }
+
+                <p>&copy; @DateTime.Now.Year - Gwenzig Website</p> <p>@assembly</p>
+            </div>
+        </footer>
+        </div>
+    </div>
+
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+
+    <script>
+         $(document).ready(function () {
+             $(".fallback").on("error", function () {
+                 $(this).attr('src', '../Content/fallback.jpg');
+                 //$(this).attr('style', 'backgrund-image:url(../Content/fallback.jpg)');
+             });
+         });
+    </script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            // Initialize numeric spinner input boxes
+            //$('modal-body').load(
+
+            //    function () {                $("#loader").hide("slow");    }
+            //);
+            //$(".numeric-spinner").spinedit();
+            // Initialize modal dialog
+            // attach modal-container bootstrap attributes to links with .modal-link class.
+            // when a link is clicked with these attributes, bootstrap will display the href content in a modal dialog.
+            $('body').on('click', '.modal-link', function (e) {
+                $("#loader").show("slow");
+                e.preventDefault();
+                $(this).attr('data-target', '#modal-container');
+                $(this).attr('data-toggle', 'modal');
+
+            });
+            // Attach listener to .modal-close-btn's so that when the button is pressed the modal dialog disappears
+            $('body').on('click', '.modal-close-btn', function () {
+                $('#modal-container').modal('hide');
+                $("#loader").hide("slow");
+            });
+            //clear modal cache, so that new content can be loaded
+            $('#modal-container').on('hidden.bs.modal', function () {
+                $(this).removeData('bs.modal');
+            });
+            $('#CancelModal').on('click', function () {
+                return false;
+            });
+        });
+    </script>
+
+</body>
+</html>

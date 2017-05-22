@@ -1,0 +1,139 @@
+@model CloudburryNet.Models.BlogViewModels.BlogPostFactoryViewModel
+@{
+    ViewData["Title"] = "CreateBlogPost";
+}
+
+<h2>CreateBlogPost</h2>
+
+<div class="row">
+
+
+    <form asp-controller="Blog" asp-action="NewBlogPostAsync" data-ajax="true" data-ajax-method="POST" data-ajax-begin="begin" data-ajax-success="success" data-ajax-error="fail" data-ajax-complete="complete">
+
+
+        <script>
+
+            function begin() {
+                console.log("begin");
+                alert("started...")
+                if ($('button[type="submit"]').prop("disabled") == true) {
+                    return;
+                }
+                $('button[type="submit"]').prop("disabled", true);
+            }
+            function success(data, status, xhr) {
+
+                console.log("Ajax form submission", "onTestSuccess");
+                console.log("status", status);
+                console.log("xhr", xhr);
+
+                modal(data, status);
+
+                $('button[type="submit"]').prop("disabled", false);
+            }
+            function fail(data, status, xhr) {
+                console.log("Fail", status);
+                modal(status);
+                $.unblockUI();
+                $('button[type="submit"]').prop("disabled", false);
+            }
+            function complete(data, status, xhr) {
+                console.log("Complete data:", data);
+                console.log("Complete status:", status);
+                console.log("Complete xhr:", xhr);
+                $('button[type="submit"]').prop("disabled", false);
+            }
+
+
+
+            function modal(body) {
+                alert(body);
+            }
+
+
+        </script>
+
+
+        @Html.AntiForgeryToken()
+
+        @{
+            var appendtag_url = Url.Action("AppendTag", "Blog");
+        }
+
+
+        <div class="col-xs-12 col-md-6">
+
+            <div class="form-group">
+                <select asp-for="@Model.Post.Width" class="form-control">
+                    <option value="3">Third</option>
+                    <option value="4">Quarter</option>
+                    <option value="6">Half</option>
+                    <option value="12">Full</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input asp-for="@Model.Post.PostDate" value="@DateTime.Now.ToString()" class="form-control" />
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="form-group">
+                <label>Title: </label><input asp-for="@Model.Post.Title" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Content: </label><textarea asp-for="@Model.Post.Content" class="form-control"></textarea>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="form-group">
+                <h4>Tags</h4>
+                <input id="tagvalue" /><a href="javascript:void(0)" id="addtag"> Add tag</a>
+            </div>
+            <div class="form-group">
+                <ul id="taglist"></ul>
+            </div>
+            <script>
+                    $(document).ready(function () {
+
+                    $('#addtag').click(function () {
+
+                            var newtag = $('#tagvalue').val();
+                            var tagcount = document.getElementById('taglist').childNodes.length;
+                            var url =
+
+                        $.ajax({
+                                cache: false,
+                            type: "Post",
+                            url: '@appendtag_url',
+                            data: {
+                                    tag: newtag,
+                                count: tagcount
+                            },
+                            success: function (data) {
+                                    // data will be the html from the partial view
+                                    var x = document.createElement("LI");
+                                    //var t = document.create(data);
+                                    x.innerHTML = data;
+                                    document.getElementById("taglist").appendChild(x);
+
+
+                                $('#tagvalue').val("");
+                                },
+                            error: function (xhr, ajaxOptions, thrownError) {
+                                    // Handle the error somehow
+                                    alert(thrownError);
+                                }
+                            }); // end ajax call
+
+                        });
+                    });
+            </script>
+        </div>
+        <div class="col-xs-12">
+            <div class="form-group">
+            <button type="submit" class="btn btn-block">Create</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>

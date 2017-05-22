@@ -1,0 +1,61 @@
+@model CloudburryNet.Models.BlogViewModels.Wall_ViewModel
+@{
+    ViewData["Title"] = Model.SelectedUser?.Alias;
+}
+<h2>@Model.SelectedUser?.Alias</h2>
+<div class="row">
+
+    @if (Model.Posts?.Count < (int?)1 || Model.Posts == null)
+    {
+        <h2>It's empty here</h2>
+        <i><span class="glyphicon glyphicon-info"></span> Create new posts in the blog post manager - </i>
+        <a class="btn btn-default" asp-controller="Blog" asp-action="CreateBlogPost">Take me there</a>
+
+    }
+    else
+    {
+
+
+        @for (int i = 0; i < Model.Posts.Count; i++)
+        {
+            var colspan = Model.Posts[i].Width != 0 ? Model.Posts[i]?.Width : 3;
+
+
+
+            <div class="col-sm-@colspan">
+                <div class="row" style="padding:7px;" >
+                    <div class="col-xs-12" style="border:2px solid #000000;">
+                        <div class="wall_header">
+                            <h4>
+                                @Html.Raw(Model.Posts[i].Title)
+                            </h4>
+                            <br /><hr />
+                        </div>
+                        <div class="wall_body">
+                            <p>
+                                @Html.Raw(Model.Posts[i].Content)
+                            </p>
+                            <br /><hr />
+                        </div>
+
+                        <div class="wall_body_tags">
+                            <ul>
+                                @foreach (var tag in Model.Posts[i].PostTags)
+                                {
+                                    <li style="display:inline-block">@tag.Tag</li>
+                                }
+                            </ul>
+                            <br /><hr />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        } // Post Loop
+
+
+    }
+
+
+</div>
+
+

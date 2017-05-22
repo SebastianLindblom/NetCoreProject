@@ -1,0 +1,14 @@
+﻿@using Gwenzig.Data.DataModels
+@model System.Tuple<Gwenzig.Models.SessionViewModel, Sections>
+
+<div class="row" style="vertical-align:top; text-align:center; margin-bottom:100px;">
+   <div class="col-xs-6 col-sm-6 col-md-4 pull-right" style="margin-top:-53px; height:150px">
+        <h3>@Model.Item2.Head&nbsp;&nbsp;&nbsp;<span class=""></span></h3>
+    </div>
+
+
+
+    <div class="row" style="clear:both; ">
+        @Html.Partial("~/Views/Home/Lists/Serviceareas_List.cshtml", Model.Item1.Serviceareas)
+    </div>
+</div>

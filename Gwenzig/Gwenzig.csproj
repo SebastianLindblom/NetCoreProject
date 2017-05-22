@@ -1,0 +1,172 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <!--<TargetFramework>net452</TargetFramework>-->
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <PackageTargetFallback>portable-net45;win8;wp8;wpa81</PackageTargetFallback>
+    <RuntimeIdentifier>win7-x86</RuntimeIdentifier>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <UserSecretsId>aspnet-Gwenzig-22550090-bf8d-455a-a786-0fc0ca632f69</UserSecretsId>
+    <ApplicationIcon>wwwroot/favicon.ico</ApplicationIcon>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <Version>2.0.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0-msbuild3-final" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Properties\PublishProfiles\Default Settings.pubxml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\Content\bootstrap-theme.css" />
+    <Content Include="wwwroot\Content\bootstrap-theme.css.map" />
+    <Content Include="wwwroot\Content\bootstrap-theme.min.css" />
+    <Content Include="wwwroot\Content\bootstrap-theme.min.css.map" />
+    <Content Include="wwwroot\Content\bootstrap.css" />
+    <Content Include="wwwroot\Content\bootstrap.css.map" />
+    <Content Include="wwwroot\Content\bootstrap.min.css" />
+    <Content Include="wwwroot\Content\bootstrap.min.css.map" />
+    <Content Include="wwwroot\Content\fallback.jpg" />
+    <Content Include="wwwroot\Content\Images\BlackCoffee.JPG" />
+    <Content Include="wwwroot\Content\Images\Carousel\Bride.jpg" />
+    <Content Include="wwwroot\Content\Images\Carousel\carousel1.jpg" />
+    <Content Include="wwwroot\Content\Images\Carousel\carousel2.jpg" />
+    <Content Include="wwwroot\Content\Images\Carousel\carousel3.jpg" />
+    <Content Include="wwwroot\Content\Images\Carousel\Fashionwalk.jpg" />
+    <Content Include="wwwroot\Content\Images\Carousel\SquareHorse.jpg" />
+    <Content Include="wwwroot\Content\Images\Carousel\TonyTV.jpg" />
+    <Content Include="wwwroot\Content\Images\FeaturedItems\Chanel\ChanelNews-C.png" />
+    <Content Include="wwwroot\Content\Images\FeaturedItems\Dunhill\dunhill-1.png" />
+    <Content Include="wwwroot\Content\Images\FeaturedItems\Dunhill\dunhill-2-BW.png" />
+    <Content Include="wwwroot\Content\Images\FeaturedItems\Dunhill\dunhill-2-C.png" />
+    <Content Include="wwwroot\Content\Images\FeaturedItems\Dunhill\dunhill-3-C.png" />
+    <Content Include="wwwroot\Content\Images\FeaturedItems\Dunhill\dunhill-4-C.png" />
+    <Content Include="wwwroot\Content\Images\FeaturedItems\Dunhill\dunhill-5-C.png" />
+    <Content Include="wwwroot\Content\Images\FeaturedItems\Dunhill\dunhill-main-bw.png" />
+    <Content Include="wwwroot\Content\Images\FeaturedItems\Dunhill\dunhill-main-c.png" />
+    <Content Include="wwwroot\Content\Images\FeaturedItems\Mercedes1.jpg" />
+    <Content Include="wwwroot\Content\Images\FeaturedItems\MercedesBenz\Eclass-bw.png" />
+    <Content Include="wwwroot\Content\Images\FeaturedItems\MercedesBenz\Eclass-Main-c.png" />
+    <Content Include="wwwroot\Content\Images\FeaturedItems\MercedesBenz\EclassRoom-C-1.png" />
+    <Content Include="wwwroot\Content\Images\FeaturedItems\MercedesBenz\EclassRoom-C.png" />
+    <Content Include="wwwroot\Content\Images\FeaturedItems\Volvo\ConceptYou-main-bw.jpg" />
+    <Content Include="wwwroot\Content\Images\FeaturedItems\Volvo\ConceptYou2-BW.png" />
+    <Content Include="wwwroot\Content\Images\FeaturedItems\Volvo\ConceptYou2_C.png" />
+    <Content Include="wwwroot\Content\Images\FeaturedItems\Volvo\ConceptYou_main_C.png" />
+    <Content Include="wwwroot\Content\Images\FeaturedItems\Volvo\xc90-C.png" />
+    <Content Include="wwwroot\Content\Images\FeaturedItems\Volvo\xc90-main-BW.png" />
+    <Content Include="wwwroot\Content\Images\gwenzig-logo.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\Apps\MokardApp.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\Apps\MusicFansPlayer.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\Branding\Bookbind.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\Branding\Bookbind2.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\Branding\Eblotus.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\Branding\GalleryNow.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\Branding\GalleryNow_Businesscard.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\Branding\PopCapWorld.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\Branding\PopCapWorld_logo.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\Branding\SummerCrush.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\Branding\TheBragPlate.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\Chanel\ChanelNews-C.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\Dunhill\dunhill-1.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\Dunhill\dunhill-2-BW.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\Dunhill\dunhill-2-C.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\Dunhill\dunhill-3-C.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\Dunhill\dunhill-4-C.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\Dunhill\dunhill-5-C.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\Dunhill\dunhill-main-bw.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\Dunhill\dunhill-main-c.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\Events\1stTaipeiKizomba.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\Events\2ndTaipeiKizomba.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\Events\JazzConcertSeries.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\Events\JazzConcertSeries2.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\HouseofCards\HouseofCardsBlackJack.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\icons\AD.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\icons\branding.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\icons\Marketing.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\icons\PR.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\Installation\ConceptYou.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\Installation\GameTrunk.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\Installation\GameTrunk2.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\Installation\Mojo.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\Installation\MojoPodium.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\Lavie\lavie-1-bw.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\Lavie\lavie-1-c.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\Lavie\lavie-2-bw.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\Lavie\lavie-2-c.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\MercedesBenz\Eclass-bw.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\MercedesBenz\Eclass-Main-c.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\MercedesBenz\EclassRoom-C-1.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\MercedesBenz\EclassRoom-C.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\Scampi\ScampiRestaurant.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\Social Marketing\Social-Marketing_BW.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\Social Marketing\Social-Marketing_C.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\Volvo\ConceptYou-main-bw.jpg" />
+    <Content Include="wwwroot\Content\Images\Pictures\Volvo\ConceptYou2-BW.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\Volvo\ConceptYou2_C.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\Volvo\ConceptYou_main_C.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\Volvo\xc90-C.png" />
+    <Content Include="wwwroot\Content\Images\Pictures\Volvo\xc90-main-BW.png" />
+    <Content Include="wwwroot\Content\Images\Sections\eye-texture.jpg" />
+    <Content Include="wwwroot\Content\Images\Sections\water-texture.jpg" />
+    <Content Include="wwwroot\Content\Images\Sections\wood-texture.jpg" />
+    <Content Include="wwwroot\Content\Images\Serviceareas\icons\AD.png" />
+    <Content Include="wwwroot\Content\Images\Serviceareas\icons\branding.png" />
+    <Content Include="wwwroot\Content\Images\Serviceareas\icons\Marketing.png" />
+    <Content Include="wwwroot\Content\Images\Serviceareas\icons\PR.png" />
+    <Content Include="wwwroot\Content\Images\ShowcaseItems\Lavie\lavie-1-bw.png" />
+    <Content Include="wwwroot\Content\Images\ShowcaseItems\Lavie\lavie-1-c.png" />
+    <Content Include="wwwroot\Content\Images\ShowcaseItems\Lavie\lavie-2-bw.png" />
+    <Content Include="wwwroot\Content\Images\ShowcaseItems\Lavie\lavie-2-c.png" />
+    <Content Include="wwwroot\Content\Images\Social Marketing\Social-Marketing_BW.png" />
+    <Content Include="wwwroot\Content\Images\Social Marketing\Social-Marketing_C.png" />
+    <Content Include="wwwroot\Content\Images\telephone.png" />
+    <Content Include="wwwroot\Content\Images\Trafficlight.JPG" />
+    <Content Include="wwwroot\Content\Site.css" />
+    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="wwwroot\fonts\TrajanProRegular.ttf" />
+    <Content Include="wwwroot\favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="1.1.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="1.1.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="1.1.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.0" />
+    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="1.0.0" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\DataModels\" />
+    <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="Views\Mail\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="wwwroot/favicon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

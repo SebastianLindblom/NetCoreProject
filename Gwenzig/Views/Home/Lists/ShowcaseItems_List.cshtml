@@ -1,0 +1,28 @@
+﻿@using Gwenzig.Data.DataModels
+@model IEnumerable<ShowcaseItems>
+
+@if (Model != null)
+{
+    foreach (var element in Model)
+    {
+        var imageurl = "Content/fallback.jpg";
+        if (element.ImageName != null && element.ImageName != "")
+        {
+            imageurl = "Content/Images/Pictures/" + element.ImageName;
+        }
+        <div style="vertical-align:top; display:inline-block">
+
+
+            <a class="modal-link" href="@Url.Action("ShowcaseItem_Modal","Home", new { Name = element.ItemName })">
+                <div class="Showcase_Item" style="background-image:url('@imageurl'); ">
+                    <div class="Showcase_box">
+                        @*<div class="Showcase_Inner_Box">
+                            <h3>@element.ItemName</h3>
+                        </div>*@
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    }
+}

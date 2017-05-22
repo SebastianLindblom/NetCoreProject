@@ -1,0 +1,203 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .banner_img {
+        object-fit: fill;
+        overflow: hidden;
+    }
+    .banner_item{
+        height:100%;
+    }
+    .btn-custom{
+        background-color:transparent;
+    }
+    .btn-custom :hover{
+        background-color:rgba(0, 0, 0, 0.27)
+    }
+     
+    video#bgvid {
+        object-fit:fill;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: 100vh;
+        z-index: -100;
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        background: url(~/images/JapanRiver01.mp4-poster.png) no-repeat;
+        background-size: cover;
+    }
+
+    video#bgvid {
+        transition: 1s opacity;
+    }
+
+    .stopfade {
+        opacity: .5;
+    }
+
+    video {
+        display: block;
+    }
+
+
+    @@media screen and (max-device-width: 800px) {
+        video_fallback_image {
+           display:block;
+        }
+
+        #bgvid {
+            display: none;
+        }
+    }
+</style>
+
+<div class="row">
+    <video class="col-xl-12" playsinline autoplay muted loop poster="~/images/JapanRiver01.mp4-poster.png" id="bgvid">
+        <source src="~/videos/JapanRiver01.mp4.mp4" type="video/mp4">
+        <div style="text-align:center; position:relative; top:-50px;">
+            <button class="btn btn-custom" id="vidpause">||</button>
+        </div>
+    </video>
+    <img id="video_fallback_image" class="banner_img" style="display:none;" src="~/images/JapanRiver01.mp4-poster.png"/>
+
+    <script>
+        $(document).ready(function () {
+            var vid = document.getElementById("bgvid"),
+                pauseButton = document.getElementById("vidpause");
+            if (window.matchMedia('(prefers-reduced-motion)').matches) {
+                vid.removeAttribute("autoplay");
+                vid.pause();
+                pauseButton.innerHTML = "|>";
+            }
+
+            function vidFade() {
+                vid.classList.add("stopfade");
+            }
+            vid.addEventListener('ended', function () {
+                // only functional if "loop" is removed
+                vid.pause();
+                // to capture IE10
+                vidFade();
+            });
+            pauseButton.addEventListener("click", function () {
+                vid.classList.toggle("stopfade");
+                if (vid.paused) {
+                    vid.play();
+                    pauseButton.innerHTML = "||";
+                } else {
+                    vid.pause();
+                    pauseButton.innerHTML = "|>";
+                }
+            })
+        });
+    </script>
+
+</div>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox" style="height:500px;">
+        <div class="item active banner_item">
+            <div class="carousel-caption " role="option">
+                <p>
+                    Learn how to build ASP.NET apps that can run anywhere.
+                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
+                        Learn More
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="item banner_item">
+            <div class="carousel-caption" role="option">
+                <p>
+                    There are powerful new features in Visual Studio for building modern web apps.
+                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
+                        Learn More
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="item banner_item">
+            <div class="carousel-caption" role="option">
+                <p>
+                    Bring in libraries from NuGet, Bower, and npm, and automate tasks using Grunt or Gulp.
+                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525029&clcid=0x409">
+                        Learn More
+                    </a>
+                </p>
+            </div>
+        </div>
+        
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+
+<div class="row" style="margin-top:20px; background-color:coral; background-size:cover;">
+    <div class="col-xs-6 col-sm-6">
+        <img src="~/images/productivity.jpeg" alt="Productivity" class="img-responsive banner_img" />
+    </div>
+    <div class="col-xs-6 col-sm-6" sstyle="text-align:center;">
+        <h1 style="color:darkblue">
+            Start writing what really matters to you.
+            <a class="btn btn-custom" asp-controller="Blog" asp-action="Index">Get Started</a>
+        </h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12" style="text-align:center; background-color:rgba(255, 255, 255, 0.7); padding-top:120px; padding-bottom:120px;">
+        <h1 style="color:black">
+            This is how it works.
+        </h1>
+        <h2>In the <a class="btn badge-pill h2" asp-controller="Blog" asp-action="Index">Console</a>, found in the menu above, you can create new posts which later will be put on your profile.</h2><br /><br /><h3>Your content can be reached by anyone, no signup needed, at the board. <b>Just type</b> Clouburry.com/Board/YourUserAlias.</h3>
+    </div>
+</div>
+<div class="row" style="background-color:goldenrod; background-size:cover;">
+
+    <div class="col-xs-6 col-sm-8" style="text-align:center;">
+        <h3 style="color:black">
+            Between me &Aacute; a cup of <span style="color:blanchedalmond"><b>Coffee</b></span>, <br />there is ideas worth sharing.<br />
+            <a class="btn btn-custom" asp-controller="Blog" asp-action="CreateBlogPost">
+                Start Sharing
+            </a>
+        </h3>
+    </div>
+    <div class="col-xs-6 col-sm-4">
+        <img src="~/images/cup-of-coffee.jpg" alt="cup of coffee" class="img-responsive banner_img" />
+    </div>
+</div>
+<div class="row" style="margin-top:120px; margin-bottom:140px; background-color:cornflowerblue; background-size:cover;">
+    <div class="col-xs-6 col-sm-6">
+        <img src="~/images/NightBuilding.jpg" alt="Night Building" class="img-responsive banner_img" />
+    </div>
+    <div class="col-xs-6 col-sm-6" style="text-align:center;">
+        <h2 style="color:white;">
+            This blog is free and available to anyone and everyone. <br />
+            <i>
+                Check out <a class="btn btn-custom" asp-controller="Blog" asp-action="UserBlog"><b style="color:coral">The Board</b></a> where you can <br />
+                find and share.
+            </i>
+        </h2>
+    </div>
+</div>
+

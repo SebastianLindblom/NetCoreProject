@@ -1,0 +1,14 @@
+﻿@using Gwenzig.Data.DataModels
+@model System.Tuple<Gwenzig.Models.SessionViewModel, Sections>
+
+
+<div class="service_item row" style="background-color:@Model.Item2.BackgroundColor">
+    <div class="col-sm-12">
+        <div style="text-align:center">
+            @Html.Partial("~/Views/Home/Lists/Serviceoffers_List.cshtml", Model.Item1.Serviceoffers)
+
+            
+        </div>
+
+    </div>
+</div><!--service_offers-->

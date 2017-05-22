@@ -1,0 +1,16 @@
+﻿@using Gwenzig.Data.DataModels
+
+@model System.Tuple<Gwenzig.Models.SessionViewModel, List<Banners>, List<Sections>>
+
+
+
+@Html.Partial("~/Views/Home/Templates/Banner.cshtml", Model.Item2)
+
+
+@foreach (var item in Model.Item3)
+{
+
+    var model = new Tuple<SessionViewModel, Sections>(Model.Item1, item);
+
+   await Html.RenderPartialAsync("~/Views/Home/Templates/Template_" + item.TemplateId.ToString() + ".cshtml", model);
+}

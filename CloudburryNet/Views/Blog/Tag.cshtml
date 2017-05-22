@@ -1,0 +1,6 @@
+﻿@model CloudburryNet.Models.BlogViewModels.BlogPostFactoryViewModel
+
+@if (Model.Tags?.Count > 0)
+{
+    <input asp-for="@Model.Tags[Model.Tags.Count - 1]" class="form-control" />
+}

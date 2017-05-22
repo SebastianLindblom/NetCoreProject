@@ -1,0 +1,7 @@
+﻿@model CloudburryNet.Models.BlogViewModels.BlogAliasViewModel
+
+@if (Model.UserAliases?.Count > 0)
+{
+    <input asp-for="@Model.UserAliases[Model.UserAliases.Count - 1].Id" type="hidden" class="form-control" />
+    <input asp-for="@Model.UserAliases[Model.UserAliases.Count - 1].Alias" class="form-control" />
+}

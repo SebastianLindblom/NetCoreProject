@@ -1,0 +1,32 @@
+﻿@using Gwenzig.Data.DataModels
+@model IEnumerable<Prices>
+
+
+@if (Model!= null)
+            {
+                foreach (var element in Model)
+                {
+        <div class="col-sm-4">
+            <div>
+                <h3>@element.Title</h3>
+                <p>@element.Description</p>
+                <h1>@element.Pricetag</h1>
+            </div>
+            <div class="element1">
+
+                @if (element.Priceattributes != null)
+                {
+                    foreach (var attribute in element.Priceattributes)
+                    {
+                            <div class="col-sm-12">
+                                <p>@attribute.Attribute</p>
+                            </div>
+                    }
+                }
+            </div>
+            <a class="modal-link" href="@Url.Action("Messages_Modal", "Messages")" style="text-decoration: none; color:black; margin-top:20px;">
+                <h3>@element.Enrollmenttext</h3>
+                </a>
+</div>
+    }
+}

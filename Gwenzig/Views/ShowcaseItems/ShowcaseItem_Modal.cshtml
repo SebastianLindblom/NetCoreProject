@@ -1,0 +1,30 @@
+﻿@using Gwenzig.Data.DataModels
+@model ShowcaseItems
+
+<div class="modal-body">
+    <div>
+        <h4>@Html.Raw(Model.ItemName)</h4>
+        <hr />
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <p>@Html.Raw(Model.Text)</p>
+            </div>
+            <div class="Featured_Image col-sm-12 col-md-6">
+                <img class="fallback" src="/Content/Images/Pictures/@Model.ImageName" />
+            </div>
+            @if (Model.Link != null && Model.Link != "")
+            {
+                <div class="col-sm-12 col-md-6">
+                    <a class="btn btn-default" style="background:white;" href="@Model.Link" target="_blank" ><b>Read more here &nbsp;<span class="glyphicon glyphicon-chevron-right"></span></b></a>
+                </div>
+            }
+
+        </div>
+
+    </div>
+    <script>
+    $( document ).ready(function(){
+        $("#loader").hide();
+    });
+    </script>
+</div>

@@ -1,0 +1,22 @@
+﻿@using Gwenzig.Data.DataModels
+@model IEnumerable<Serviceoffers>
+@{        var column_number = Model.Count() >= 6 ? 2 : Math.Round(Convert.ToDouble(12 / Model.Count()));   }
+
+@if (Model != null)
+            {
+                foreach (var element in Model)
+                {
+        <div class="col-sm-@column_number">
+            <div class="sih">
+                <h3>@element.Head</h3>
+                <hr />
+            </div>
+            <div class="sip">
+
+                <p>@element.Text</p>
+            </div>
+            @{ var elementLink = element.Link == "" ? "#" : element.Link;}
+            <a target="_blank" href="@elementLink"><h4>Read More</h4></a>
+        </div>
+    }
+}

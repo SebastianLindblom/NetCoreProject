@@ -1,0 +1,101 @@
+﻿@model CloudburryNet.Models.BlogViewModels.BlogAliasViewModel
+@{
+    ViewData["Title"] = "Manage your Alias";
+}
+
+<h2>@ViewData["Title"].</h2>
+
+<p class="text-success">@ViewData["StatusMessage"]</p>
+@if (Model.UserAliases?.Count > 0)
+{
+    <div class="row">
+        <div class="col-12">
+
+            <h4>Aliases</h4>
+
+            <form asp-controller="Blog" asp-action="UpdateAliases" method="post">
+
+
+                <table class="table">
+                    <tbody id="aliastablebody">
+                        @for (var index = 0; index < Model.UserAliases?.Count; index++)
+                        {
+                            <tr>
+                                <td><input asp-for="@Model.UserAliases[index].Id" type="hidden" class="form-control" /></td>
+                                <td><input asp-for="@Model.UserAliases[index].Alias" class="form-control" /></td>
+                            </tr>
+                            <tr>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </form>
+        
+                </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+
+            <input id="aliasvalue" /><a href="javascript:void(0)" id="addalias"> Add Alias</a>
+
+
+            @Html.AntiForgeryToken()
+
+            @{
+                var appendalias_url = Url.Action("AppendAlias", "Blog");
+            }
+
+            <script>
+                    $(document).ready(function () {
+
+                    $('#addalias').click(function () {
+
+                            var newalias = $('#aliasvalue').val();
+                            var aliascount = document.getElementById('aliastablebody').childNodes.length;
+                            var url =
+
+                        $.ajax({
+                                cache: false,
+                            type: "GET",
+                            url: '@appendalias_url',
+                            data: {
+                                    tag: newalias,
+                                count: aliascount
+                            },
+                            success: function (data) {
+
+                                if (data.success == true) {
+
+
+                                    // data will be the html from the partial view
+                                var tr = document.createElement("tr");
+                                var td = document.createElement("td");
+                                    td.innerHTML = data;
+                                tr.appendChild(td);
+
+                                    document.getElementById("aliastablebody").appendChild(tr);
+
+
+                                $('#aliasvalue').val("");
+                                }
+                                else {
+                                    alert(data.message)
+                                }
+                                },
+                            error: function (xhr, ajaxOptions, thrownError) {
+                                    // Handle the error somehow
+                                    alert(thrownError);
+                                }
+                            }); // end ajax call
+
+                        });
+                    });
+            </script>
+
+
+        </div>
+
+    </div>
+                }
+

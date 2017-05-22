@@ -1,0 +1,24 @@
+﻿@using Gwenzig.Data.DataModels
+@model System.Tuple<Gwenzig.Models.SessionViewModel, Sections>
+
+@{
+    var imageurl = "Content/fallback.jpg";
+    if (Model.Item2.ImageName != null && Model.Item2.ImageName != "") { imageurl = "Content/Images/Sections/" + Model.Item2.ImageName; }
+}
+<div class="row">
+        <div class="col-sm-12 background_image" style="background:url(@imageurl); background-size:cover;
+      background-repeat: no-repeat;  background-position: center;" >
+                <div class="row">
+                    <div class="col-sm-12" style="background-color:@Model.Item2.BackgroundColor;">
+                            <div class="row">
+                                <div class="col-sm-11 col-md-7 col-sm-push-1 col-xs-push-0 pull-left" style="color:white">
+                                    <h2>@Model.Item2.Head</h2>
+                                    <p>@Model.Item2.Text</p>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-8" style="height:53px;"></div><div class="col-xs-6 col-sm-6 col-md-4" style="height:53px; background:white;"></div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+</div>

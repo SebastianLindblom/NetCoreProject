@@ -1,0 +1,36 @@
+﻿@model CloudburryNet.Models.BlogViewModels.BlogOverviewViewModel
+@using Microsoft.AspNetCore.Http.Authentication
+@{
+    ViewData["Title"] = "Manage your blog";
+}
+
+<h2>@ViewData["Title"].</h2>
+
+<p class="text-success">@ViewData["StatusMessage"]</p>
+@if (Model.UserCreatedPosts?.Count > 0)
+{
+    <h4>Registered Posts</h4>
+    <table class="table">
+        <tbody>
+            @for (var index = 0; index < Model.UserCreatedPosts?.Count; index++)
+            {
+                <tr>
+                    <td>@Model.UserCreatedPosts[index].PostDate</td>
+                    <td>@Model.UserCreatedPosts[index].Title</td>
+                    <td>
+                            <form asp-controller="Blog" asp-action="ToggeVisibility" method="post" class="form-horizontal">
+                                <div>
+                                    <input asp-for="@Model.UserCreatedPosts[index].Id" name="LoginProvider" type="hidden" />
+                                    <input asp-for="@Model.UserCreatedPosts[index].Visible" type="hidden" />
+
+                                    @Html.CheckBoxFor(c=> c.UserCreatedPosts[index].Visible != "true", new { } )
+                                    <input type="submit" class="btn btn-default" value="Remove" title="Submit" />
+                                </div>
+                            </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

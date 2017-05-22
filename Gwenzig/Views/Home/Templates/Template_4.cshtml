@@ -1,0 +1,16 @@
+﻿@using Gwenzig.Data.DataModels
+@model System.Tuple<Gwenzig.Models.SessionViewModel, Sections>
+
+
+
+    <div class="row" style="vertical-align:top; text-align:center; background-repeat:no-repeat; margin-bottom:150px">
+        <div>
+            <h2>@Model.Item2.Head</h2>
+        </div>
+
+        <!--ROW-->        <div class="col-xs-12"><hr class="col-xs-offset-2 col-xs-8" /></div>
+
+        @Html.Partial("~/Views/Home/Lists/ShowcaseItems_List.cshtml", Model.Item1.ShowcaseItems)
+
+    </div>
+

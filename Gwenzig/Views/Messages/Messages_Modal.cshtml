@@ -1,0 +1,79 @@
+﻿@using Gwenzig.Data.DataModels
+@model Messages
+<div class="modal-body">
+
+    <div class="info">
+    <h1>Hello, Let's talk</h1><h3>Tell us about your purchasing plan or business requests. Gwenzig will be assisting you towards your success soon.</h3> 
+    </div>
+    @using (Html.BeginForm("Post", "Messages", FormMethod.Post))
+    {
+        <div class="row">
+            @Html.AntiForgeryToken()
+           
+            <hr />
+
+
+            <div class="col-sm-12 col-md-6">
+
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Name)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Topic, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Topic, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Topic)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Mail, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Mail, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Mail)
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Message, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Message)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10" style="margin-top:17px;">
+                     
+
+                            <input type="submit" class="btn btn-default" value="Send" />
+                     
+                    </div>
+                </div>
+                </div>
+
+
+            </div>
+
+    }
+
+    <script>
+    $( document ).ready(function(){
+        $("#loader").hide();
+    });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#approve-btn').click(function () {
+
+                $('#modal-container').modal('hide');
+            });
+        });
+    </script>
+</div>
+
+

@@ -1,0 +1,25 @@
+﻿@using Gwenzig.Data.DataModels
+@model System.Tuple<Gwenzig.Models.SessionViewModel, Sections>
+
+    <!--PRICE-->
+
+
+    <div class="row" style="margin-bottom:100px">
+        <div class="PR col-sm-11 col-sm-offset-1" style="margin-bottom:20px;">
+            <!--headline-->
+            <h1>@Model.Item2.Head</h1>
+        <hr />
+        </div><!--headline-->
+
+        <div class="col-sm-12">
+
+            <div id="price_content">
+                <div style="vertical-align:top; text-align:center;">
+                    @Html.Partial("~/Views/Home/Lists/Prices_List.cshtml", Model.Item1.Prices);
+
+                </div>
+            </div><!--content-->
+           
+        </div>
+
+    </div>

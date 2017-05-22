@@ -1,0 +1,29 @@
+﻿@using Gwenzig.Data.DataModels
+@model FeaturedItems
+
+<style>
+
+</style>
+
+<div class="modal-body">
+    
+
+        <h4>@Model.FeaturedName</h4>
+        <hr />
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <p>@Html.Raw(Model.Description)</p>
+            </div>
+
+            <div class="col-sm-12 col-md-12">
+                @Html.Raw(Model.Text)
+            </div>
+
+        </div>
+    <script>
+    $( document ).ready(function(){
+        $("#loader").hide();
+    });
+    </script>
+    </div>
+

@@ -1,0 +1,46 @@
+﻿@using Gwenzig.Data.DataModels
+@model IEnumerable<Banners>
+
+
+   <div style="height: 100vh;">
+    <div id="myCarousel" class="carousel slide row" data-ride="carousel" data-interval="6000">
+        <ol class="carousel-indicators">
+            @foreach (var item in Model)
+            {
+                var active = item.PositionId == 1 ? "active" : "";
+                var slideto = item.PositionId - 1; // start from 0
+                <li data-target="#myCarousel" data-slide-to="@slideto" class="active"></li>
+            }
+        </ol>
+        <div class="carousel-inner" role="listbox">
+
+            @foreach (var banner in Model)
+            {
+                var active = banner.PositionId == 1 ? "active" : "";
+
+
+                <div class="item @active">
+                    <div class="carousel-image HomePictureItem" style="background:url(Content/Images/Carousel/@banner.ImageName); background-size:cover;"></div>
+                    <div class="carousel-caption col-lg-6 col-md-10 col-sm-12 col-xs-12" style="background-color:@banner.BlockColor;">
+                        <h3 class="BannerText">@banner.BlockTextTitle</h3>
+                        <p>@banner.BlockText</p>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+
+    </div>
+    <div class="center_banner">
+        <img class="center_logo" src="Content/Images/gwenzig-logo.png" />
+    </div>
+</div> 
